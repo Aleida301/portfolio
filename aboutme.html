@@ -1,73 +1,40 @@
 <!DOCTYPE html>
 <html>
-  
-  <head>
-  <style>
-  
-  div.container{
-  
-  	width: 100%;
-    border: 1px solid gray;
-  }
 
-  header, footer {
-	padding: 1em;
-    color: black;
-    background-color: AliceBlue;
-    clear: left;
-    text-align: center;
-  }
-  
-  nav {
-  float: left;
-  max-width: 160px;
-  margin: 10;
-  padding 1em;
-  
-  }
-  
-  nav ul {
-    list-style-type: none;
-    padding: 0;
-  }
-   
-  nav ul a {
-    text-decoration: none;
-  }
-
-  article {
-    margin-left: 170px;
-    border-left: 1px solid gray;
-    padding: 1em;
-    overflow: hidden;
-  }
-  
-</style>
-</head>
-    
-    
   <body>
   
-  <div class="container">
+  <script>
+window.alert("Welcome to my webpage");
+  
+function bigImg(x){
+	x.style.height = "300px";
+    x.style.width = "200px";
+}
+
+function normalImg(x){
+	x.style.height = "150px";
+    x.style.width = "100px";
+}
+    
+function changeText(id) {
+    id.innerHTML = "I was born on thursday, March 1st, 2001 to Angelica and Demetrio. I was born in the small beach town of Santa Cruz. Throughout my childhodd I switched between living in Mexico and living in California because my parents wanted me to understand both cultures. I have been living here permanently since 6th grade. Currently I am an upcoming junior at Harbor High. I live with my grandparents which is nice because thye are very understanding. I am interested into studying a STEM career in college but I haven't decided what to study.";
+}
+
+  </script>
   
   <header>
     <h1> Aleida Diaz-Roque </h1>
   </header>
   
-  <nav>
-  <img src="https://s-media-cache-ak0.pinimg.com/736x/12/64/da/1264da4a3f18207dc22592102abae40d.jpg" alt="Profile picture" width="100" heigh="200">
-  </nav>
+  
+  
+  <img onmouseover="bigImg(this)" onmouseout="normalImg(this)" src="https://s-media-cache-ak0.pinimg.com/736x/12/64/da/1264da4a3f18207dc22592102abae40d.jpg" alt="Profile picture" width="100" height="150">
     
-  <article> 
-    <h1> About me </h1>
-    <p> I was born on thursday, March 1st, 2001 to Angelica and Demetrio. I was born in the small beach town of Santa Cruz.
-	  Throughout my childhodd I switched between living in Mexico and living in California because my parents wanted 
-	  me to understand both cultures. I have been living here permanently since 6th grade. Currently I am an upcoming 
-	  junior at Harbor High. I live with my grandparents which is nice because thye are very understanding. I am
-	  interested into studying a STEM career in college but I haven't decided what to study. 
+
+    <h2> About me </h2>
+    <p onclick="changeText(this)"> I was born on thursday, March 1st, 2001 to Angelica and Demetrio. I was born in the small beach town of Santa Cruz.(click for more info)
 	  </p>
     
-  </article>
     
     <h2> Fun Facts </h2>
 	  
@@ -77,14 +44,14 @@
         <li> I would rather live somewhere cold than hot </li>
       </ol>  
     
-    <p> LIKES: </p>
+    <p> Likes: </p>
       <ul>
         <li> Mole </li>
         <li> Oaxacan Ice Cream </li>
         <li> Tiramisu </li>
       </ul>  
        
-    <p> DISLIKES: </p>
+    <p> Dislikes: </p>
       <ul>
         <li> Chocolate </li>
         <li> Hot whether </li>
@@ -92,6 +59,7 @@
 	<li> The water (ocean, pool, facing the showerhead) </li>
       </ul>
       
+    <h3>Reflections</h3>
 	  
     <p> Reflection June 20: Based on what I learned today some similarities are 
 	    the loops and the simple way you can make the program do anything. 
@@ -127,3 +95,5 @@
 
    
  </html>
+
+
