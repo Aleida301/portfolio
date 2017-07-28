@@ -1,29 +1,22 @@
 <!DOCTYPE html>
 <html>
 
-  <title>Traveling Through Music</title>
-
   <head>
+
+    <!-- map code -->
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
 
-    <!-- MAP CODE -->
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-      #map {
-        height: 75%;
-        width: 750px;
-        margin: auto;
-        margin-bottom: 100px;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      /*html, body {
-        height: 400px;
-        width: 800px;
-        margin: 0;
-        padding: 0;*/
-      }
+       #map {
+         height: 75%;
+         width: 75%;
+         margin: auto;
+         margin-bottom: 100px;
+          }
+
       .controls {
         margin-top: 10px;
         border: 1px solid transparent;
@@ -33,7 +26,7 @@
         height: 32px;
         outline: none;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-      }
+        }
 
       #origin-input,
       #destination-input {
@@ -45,12 +38,12 @@
         padding: 0 11px 0 13px;
         text-overflow: ellipsis;
         width: 200px;
-      }
+        }
 
       #origin-input:focus,
       #destination-input:focus {
         border-color: #4d90fe;
-      }
+       }
 
       #mode-selector {
         color: #fff;
@@ -66,115 +59,259 @@
       }
     </style>
 
-    <!-- navigation bar color -->
+    <!-- Font -->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
     <style>
-      .navbar {
-        background-color: #F8F8FF
+      body, html {
+          height: 100%;
+          margin: 0;
+          font-family: "Lato", sans-serif;
+          color: #777;
+      }
+    </style>
+
+    <!-- Parallax scrolling and captions -->
+    <style>
+
+      .img-1, .img-2, .img-3 {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+      .img-1 {
+        background-image: url("https://goo.gl/hbeNA7");
+        height: 100%;
+
+      }
+
+      .img-2 {
+        background-image: url("https://goo.gl/gudLJh");
+        height: 500px;
+      }
+
+      .img-3{
+        background-image: url("https://goo.gl/QUrtMR");
+        height: 500px;
+      }
+
+      @media only screen and (max-device-width: 1024px) {
+          .img-1, .img-2, .img-3{
+              background-attachment: scroll;
+          }
+      }
+
+      .caption {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        color: #000;
+        line-height: 300%;
+
+      }
+
+      .caption span.border {
+        background-color: #000;
+        color: #fff;
+        padding: 18px;
+        font-size: 25px;
+        letter-spacing: 10px;
+      }
+
+      @media only screen and (max-width:667px) {
+        .caption span.border{
+          font-size: 20px;
+        }
+      }
+
+      h3 {
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        font: "lato", sans-serif;
+        color: #444;
+      }
+
+    </style>
+
+    <!-- Top Navigation Bar -->
+    <style>
+      body {margin:0;}
+
+      .topnav {
+        overflow: hidden;
+        background-color: #fff;
+        position: fixed;
+        top: 0;
+        width: 100%;
+      }
+
+      .topnav a {
+        float: left;
+        display: block;
+        color: #111;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+      }
+
+      .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      .topnav .icon {
+        display: none;
+      }
+
+      @media screen and (max-width: 600px) {
+        .topnav a:not(:first-child) {display: none;}
+        .topnav a.icon {
+          float: right;
+          display: block;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        .topnav a:not(:first-child) {display: none;}
+        .topnav a.icon {
+          float: right;
+          display: block;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        .topnav.responsive {position: relative;}
+        .topnav.responsive .icon {
+          position: absolute;
+          right: 0;
+          top: 0;
+        }
+        .topnav.responsive a {
+          float: none;
+          display: block;
+          text-align: left;
+        }
+
+      }
+    </style>
+
+    <!-- link for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- contact cards -->
+    <style>
+      html {
+        box-sizing: border-box;
+      }
+
+      *, *:before, *:after {
+        box-sizing: inherit;
+      }
+
+      .column {
+        float: left;
+        width: 33.3%;
+        margin-bottom: 16px;
+        padding: 0 8px;
+      }
+
+      @media (max-width: 650px) {
+        .column {
+          width: 100%;
+          display: block;
+        }
+      }
+
+      .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      }
+
+      .container {
+        padding: 0 16px;
+      }
+
+      .container::after, .row::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      .title {
+        color: grey;
+      }
+
+      .button {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      .button:hover {
+        background-color: #555;
       }
     </style>
 
   </head>
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-  <style>
-    body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-    body, html {
-        height: 100%;
-        color: #777;
-        line-height: 1.8;
-    }
-
-    /* Create a Parallax Effect */
-      .bgimg-1, .bgimg-2, .bgimg-3 {
-          background-attachment: fixed;
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-      }
-
-    /* First image (Logo. Full height) */
-      .bgimg-1 {
-          background-image: url('https://goo.gl/naUAdN');
-          min-height: 100%;
-      }
-
-    /* Second image (Portfolio) */
-      .bgimg-2 {
-          background-image: url("https://goo.gl/gudLJh");
-          min-height: 400px;
-      }
-
-    /* Third image (Contact) */
-      .bgimg-3 {
-          background-image: url("https://goo.gl/QUrtMR");
-          min-height: 400px;
-      }
-
-    .w3-wide {letter-spacing: 10px;}
-    .w3-hover-opacity {cursor: pointer;}
-
-    /* Turn off parallax scrolling for tablets and phones */
-      @media only screen and (max-device-width: 1024px) {
-          .bgimg-1, .bgimg-2, .bgimg-3 {
-              background-attachment: scroll;
-          }
-      }
-  </style>
-
   <body>
+    <!-- Navigation bar -->
+    <div class="topnav" id="myTopnav">
+      <a href="#home"><i class="fa fa-home"></i> HOME</a>
+      <a href="#about"><i class = "fa fa-music"></i> ABOUT(product)</a>
+      <a href="#us"><i class = "fa fa-user"></i> ABOUT US</a>
+      <a href="#credits"><i class = "fa fa-file-text"></i> CREDITS</a>
+      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
 
-    <!-- Navbar (sit on top) -->
-    <div class="w3-top navbar" >
-      <div class="w3-bar" id="myNavbar">
-        <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-          <i class="fa fa-bars"></i>
-        </a>
-        <a href="#home" class="w3-bar-item w3-button">HOME</a>
-        <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
-        <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
-        <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
-      </div>
+    <script>
+      function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+    </script>
 
-      <!-- Navbar on small screens -->
-      <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-        <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-        <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
-        <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+
+    <!-- Fisrt Image with Logo -->
+    <div class="img-1">
+      <div class = "caption">
+        <span class = "border">TRAVELLING THROUGH MUSIC</span>
       </div>
     </div>
 
-    <!-- First Parallax Image with Logo Text -->
-    <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-      <div class="w3-display-middle" style="white-space:nowrap;">
-        <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">TRAVELING <span class="w3-hide-small">THROUGH</span> MUSIC</span>
-      </div>
-    </div>
 
-    <!-- Container (About Product Section) -->
-    <div class="w3-content w3-container w3-padding-64" id="about">
-      <h3 class="w3-center">ABOUT THE PRODUCT</h3>
-      <p class="w3-center"><em>How to use</em></p>
-      <p>This project was created with the intention of showing our skills on
-        web development. blah blah blah blah blah blah blah blahblah blah blah
-        blahblah blah blah blahblah blah blah blahblah blah blah blahblah blah
-        blah blahblah blah blah blahblah blah blah blah blah blah blah blahblah
-        blah blah blahblah blah blah blahblah blah blah blah blah blah blah blah
-        blah blah blah blahblah blah blah blah To use our product you can folow
-        the next simple steps:</p>
+    <!-- Content of About Product -->
+    <div style="color: #777; background-color:white; text-align:center; padding:5% 10%;text-align: justify;" id = "about">
+      <h3 style="text-align:center">ABOUT(product)</h3>
+      <p>Whit this product we showcase our skills in HTML, CSS and Javacript. This Product was created with the intention of bringing a ownderful experience
+      to those long roadtrips or even short ones. We provide you with artists from the
+      cities you pass by as you go to your destination. This way you can discover the
+      wonders that surround you. As you pass each city you will be able to travel
+      throught the music around you.</p>
+
+      <p style = "text-align:center;"><em>How to use</em></p>
+
       <ol>
         <li>Choose a route from the google maps provided</li>
         <li>Click on make playlist</li>
       </ol>
       <p>Now everytime you pass a new city songs from local artists will be added to your playlist. You will be able to travel to music. Try it down here.</p>
+
     </div>
-
-      <!-- MAP CODE -->
-
+      <!-- map code -->
       <input id="origin-input" class="controls" type="text"
           placeholder="Enter an origin location">
 
@@ -295,135 +432,129 @@
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyXcrbU-2yEutsrxTaLOg8Y47s96UqF-0&libraries=places&callback=initMap"
           async defer></script>
 
-    <!-- Second Parallax Image with Portfolio Text -->
-    <div class="bgimg-2 w3-display-container w3-opacity-min">
-      <div class="w3-display-middle" style="white-space:nowrap;">
-        <span class="w3-xxlarge w3-text-white w3-wide">ABOUT US</span>
-      </div>
+
+    <!-- Second Image with About us -->
+    <div class= "img-2" >
+      <!-- <div class = "caption">
+        <span class = "border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">ABOUT US</span>
+      </div> -->
     </div>
 
-    <!-- Container (About creators Section) -->
-    <div class="w3-content w3-container w3-padding-64" id="portfolio">
-      <h3 class="w3-center">CREATORS</h3>
-      <p class="w3-center"><em>These are all of the girls who worked to bring this product to you </em></p><br>
 
-        <div class="w3-row-padding w3-grayscale">
+    <!-- Content of About Us -->
+    <div style="color: #777;background-color:white;text-align:center;padding:5% 10%;text-align: justify;" id= "us">
+      <div class="row">
 
-          <div class="w3-col l3 m6 w3-margin-bottom">
-            <img src="https://goo.gl/UJrTMR" alt="Unnati" style="width:100%">
-            <h3>Unnati</h3>
-            <p class="w3-opacity">Spotify API</p>
-            <p>BLah blah blah blah BLah blah blah blah BLah blah blah blah BLah blah blah blah </p>
-            <p><button class="w3-button w3-light-grey w3-block">Contact Me</button></p>
-          </div>
-
-          <div class="w3-col l3 m6 w3-margin-bottom">
-            <img src="https://goo.gl/npFEbS" alt="Kasy Beas" style="width:100%">
-            <h3>Kasy Beas</h3>
-            <p class="w3-opacity">Google Maps API</p>
-            <p>BLah blah blah blah BLah blah blah blah BLah blah blah blah BLah blah blah blah </p>
-            <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-          </div>
-
-          <div class="w3-col l3 m6 w3-margin-bottom">
-            <img src="https://goo.gl/Z8SSjH" alt="Xiaotong Huang" style="width:100%">
-            <h3>Xiaotong Huang</h3>
-            <p class="w3-opacity">Google API</p>
-            <p>BLah blah blah blah BLah blah blah blah BLah blah blah blah BLah blah blah blah</p>
-            <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-          </div>
-
-          <div class="w3-col l3 m6 w3-margin-bottom">
-            <img src="https://goo.gl/ZwcrGu" alt="Lana Ngo" style="width:100%">
-            <h3>Lana Ngo</h3>
-            <p class="w3-opacity">Spptify Database</p>
-            <p>BLah blah blah blah BLah blah blah blah BLah blah blah blah BLah blah blah blah </p>
-            <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-          </div>
-
-          <div class="w3-col l3 m6 w3-margin-bottom">
-            <img src="https://goo.gl/aVx4qr" alt="ALeida Diaz" style="width:100%">
-            <h3>Aleida Diaz</h3>
-            <p class="w3-opacity">Webpage Designer</p>
-            <p>BLah blah blah blah BLah blah blah blah BLah blah blah blah BLah blah blah blah </p>
-            <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-          </div>
-
-          <div class="w3-col l3 m6 w3-margin-bottom">
-            <img src="https://goo.gl/22Myzs" alt="Mah" style="width:100%">
-            <h3>Mahum Malik</h3>
-            <p class="w3-opacity">Spotify Database</p>
-            <p>BLah blah blah blah BLah blah blah blah BLah blah blah blah BLah blah blah blah </p>
-            <p><button class="w3-button w3-light-grey w3-block">Contact</button></p>
-          </div>
-
-        </div>
-    </div>
-
-    <!-- Modal for full size images on click-->
-    <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-      <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
-      <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-        <img id="img01" class="w3-image">
-        <p id="caption" class="w3-opacity w3-large"></p>
-      </div>
-    </div>
-
-    <!-- Third Parallax Image with Portfolio Text -->
-    <div class="bgimg-3 w3-display-container w3-opacity-min">
-      <div class="w3-display-middle" style="white-space:nowrap;">
-         <span class="w3-xxlarge w3-text-white w3-wide">CONTACT US</span>
-      </div>
-    </div>
-
-    <!-- Container (Contact Section) -->
-    <div class="w3-content w3-container w3-padding-64" id="contact">
-      <h3 class="w3-center">WHERE I WORK</h3>
-      <p class="w3-center"><em>I'd love your feedback!</em></p>
-
-      <div class="w3-row w3-padding-32 w3-section">
-        <div class="w3-col m4 w3-container">
-          <!-- Add Google Maps -->
-          <div id="googleMap" class="w3-round-large w3-greyscale" style="width:100%;height:400px;"></div>
-        </div>
-        <div class="w3-col m8 w3-panel">
-          <div class="w3-large w3-margin-bottom">
-            <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Chicago, US<br>
-            <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +00 151515<br>
-            <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: mail@mail.com<br>
-          </div>
-          <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
-          <form action="/action_page.php" target="_blank">
-            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-              <div class="w3-half">
-                <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
-              </div>
-              <div class="w3-half">
-                <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
-              </div>
+        <!-- unnati -->
+        <div class="column">
+          <div class="card">
+            <img src="/w3images/team1.jpg" alt="Unnati Singh" style="width:100%">
+            <div class="container">
+              <h2>Unnati Singh</h2>
+              <p class="title">SPOTIFY API</p>
+              <p>I am a very funny person with a great personality and I love to make fun of people and not share my ice cream sundae</p>
+              <p>example@example.com</p>
+              <p><button class="button">Contact Me</button></p>
             </div>
-            <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-            <button class="w3-button w3-black w3-right w3-section" type="submit">
-              <i class="fa fa-paper-plane"></i> SEND MESSAGE
-            </button>
-          </form>
+          </div>
+        </div>
+
+        <!-- Kasy -->
+        <div class="column">
+          <div class="card">
+            <img src="/w3images/team2.jpg" alt="Kassandra Beas" style="width:100%">
+            <div class="container">
+              <h2>Kassandra Beas</h2>
+              <p class="title">GOOGLE MAPS API</p>
+              <p>I have a very mean sense of humor but in reality I do actually care about my team.....JK</p>
+              <p>example@example.com</p>
+              <p><button class="button">Contact Me</button></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- aleida -->
+        <div class="column">
+          <div class="card">
+            <img src="/w3images/team3.jpg" alt="Aleida Diaz" style="width:100%">
+            <div class="container">
+              <h2>ALeida Diaz</h2>
+              <p class="title">WEB DESIGNER</p>
+              <p>I make to many groaning noises when II'm frustrateda and I also don't know how I have friends</p>
+              <p>example@example.com</p>
+              <p><button class="button">Contact Me</button></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+
+        <!-- xiaotong -->
+        <div class="column">
+          <div class="card">
+            <img src="/w3images/team1.jpg" alt="Xiaotong Huang" style="width:100%">
+            <div class="container">
+              <h2>Xiaotong Huang</h2>
+              <p class="title">GOOGLE MAPS API</p>
+              <p>I say I'm really good at basketbal but I'm really not and also I can't see when I'm about to make a box</p>
+              <p>example@example.com</p>
+              <p><button class="button">Contact Me</button></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kasy -->
+        <div class="column">
+          <div class="card">
+            <img src="/w3images/team3.jpg" alt="Lana Ngo" style="width:100%">
+            <div class="container">
+              <h2>Lana Ngo</h2>
+              <p class="title">SPOTIFY API & DATABASE</p>
+              <p>I'm really shy but I make mean comments all the time and funny dances.</p>
+              <p>example@example.com</p>
+              <p><button class="button">Contact Me</button></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lana-->
+        <div class="column">
+          <div class="card">
+            <img src="/w3images/team3.jpg" alt="Mahum Malik" style="width:100%">
+            <div class="container">
+              <h2>Mahum Malik</h2>
+              <p class="title">SPOTIFY API & DATABASE</p>
+              <p>I cunfuse Chandra and Hana and forget my stuff everywhere (headphones and glasses)</p>
+              <p>example@example.com</p>
+              <p><button class="button">Contact Me</button></p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-      <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-      <div class="w3-xlarge w3-section">
-        <i class="fa fa-facebook-official w3-hover-opacity"></i>
-        <i class="fa fa-instagram w3-hover-opacity"></i>
-        <i class="fa fa-snapchat w3-hover-opacity"></i>
-        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-        <i class="fa fa-twitter w3-hover-opacity"></i>
-        <i class="fa fa-linkedin w3-hover-opacity"></i>
-      </div>
-      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-    </footer>
+
+    <!-- Third Image with credits -->
+    <div class = "img-3">
+      <!-- <div class = "caption">
+        <span class = "border" style="background-color:transparent;font-size:25px;color: #f7f7f7;"> CREDITS </span>
+      </div> -->
+    </div>
+
+
+    <!-- Content of Credits -->
+    <div style="color: #777;background-color:white;text-align:center;padding:5% 10%;text-align: justify;" id="credits">
+      <h3>CREDITS</h3>
+      <p>Most of the code was inpired or based of examples from W3Schools.</p>
+      <p>The links below inspired the creation of this webpage</p>
+      <ul>
+        <li>https://goo.gl/QL8MDt for the Contact profiles</li>
+        <li>https://goo.gl/RDY7Yo for the icons on the menu tabs</li>
+        <li>https://goo.gl/2jKwKn for the parallax scrolling effect</li>
+        <li></li>
+      </ul>
+    </div>
 
   </body>
 
