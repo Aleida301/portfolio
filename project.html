@@ -81,20 +81,20 @@
         }
 
       .img-1 {
-        background-image: url("https://goo.gl/hbeNA7");
+        background-image: url("https://goo.gl/h3jG3P");
         height: 100%;
-
       }
 
       .img-2 {
-        background-image: url("https://goo.gl/gudLJh");
+        background-image: url("https://goo.gl/jaLoQ2");
         height: 500px;
       }
 
       .img-3{
-        background-image: url("https://goo.gl/QUrtMR");
+        background-image: url("https://goo.gl/DLbsth");
         height: 500px;
       }
+
 
       @media only screen and (max-device-width: 1024px) {
           .img-1, .img-2, .img-3{
@@ -103,7 +103,7 @@
       }
 
       .caption {
-        position: absolute;
+        position: relative;
         left: 0;
         top: 50%;
         width: 100%;
@@ -133,7 +133,6 @@
         font: "lato", sans-serif;
         color: #444;
       }
-
     </style>
 
     <!-- Top Navigation Bar -->
@@ -146,6 +145,9 @@
         position: fixed;
         top: 0;
         width: 100%;
+        z-index: 4;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+
       }
 
       .topnav a {
@@ -226,9 +228,7 @@
         }
       }
 
-      .card {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      }
+
 
       .container {
         padding: 0 16px;
@@ -286,12 +286,11 @@
 
 
     <!-- Fisrt Image with Logo -->
-    <div class="img-1">
+    <div class="img-1" id="home">
       <div class = "caption">
         <span class = "border">TRAVELLING THROUGH MUSIC</span>
       </div>
     </div>
-
 
     <!-- Content of About Product -->
     <div style="color: #777; background-color:white; text-align:center; padding:5% 10%;text-align: justify;" id = "about">
@@ -311,6 +310,7 @@
       <p>Now everytime you pass a new city songs from local artists will be added to your playlist. You will be able to travel to music. Try it down here.</p>
 
     </div>
+
       <!-- map code -->
       <input id="origin-input" class="controls" type="text"
           placeholder="Enter an origin location">
@@ -432,119 +432,154 @@
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyXcrbU-2yEutsrxTaLOg8Y47s96UqF-0&libraries=places&callback=initMap"
           async defer></script>
 
-
     <!-- Second Image with About us -->
     <div class= "img-2" >
-      <!-- <div class = "caption">
-        <span class = "border" style="background-color:transparent;font-size:25px;color: #f7f7f7;">ABOUT US</span>
-      </div> -->
+      <div class = "caption">
+        <span class = "border" style="background-color:transparent;font-size:40px;color: #f7f7f7;">ABOUT US</span>
+      </div>
     </div>
-
 
     <!-- Content of About Us -->
     <div style="color: #777;background-color:white;text-align:center;padding:5% 10%;text-align: justify;" id= "us">
+
+      <h3 style="text-align:center">About Us</h3>
+      <p style="text-align:center"><em>These are all of the girls who worked to bring this product to you.</em></p>
+
+      <!-- Unnati, Kasy, Aleida -->
       <div class="row">
 
         <!-- unnati -->
+        <script>
+          function moreUnnati(id) {
+      		    id.innerHTML = "Hi! I’m a rising junior at Saint Francis High School, located in Mountain View. I’m 15 years old. I started coding this year at Girls Who Code. I like talking to people, drawing, writing, petting dogs, and having fun. My favorite food is mint chocolate chip ice cream. ";
+  				}
+        </script>
         <div class="column">
           <div class="card">
             <img src="/w3images/team1.jpg" alt="Unnati Singh" style="width:100%">
             <div class="container">
               <h2>Unnati Singh</h2>
               <p class="title">SPOTIFY API</p>
-              <p>I am a very funny person with a great personality and I love to make fun of people and not share my ice cream sundae</p>
-              <p>example@example.com</p>
-              <p><button class="button">Contact Me</button></p>
+              <p onclick="moreUnnati(this)">Hi! I’m a rising junior at Saint Francis High School, located in Mountain View. I’m 15 years old. (click for more)</p>
+              <p>unnatisingh@sfhs.com</p>
+              <p><button class="button" onclick="window.open('https://goo.gl/itUA7s');">Contact Me</button</p>
             </div>
           </div>
         </div>
 
         <!-- Kasy -->
+        <script>
+          function moreKasy(id) {
+      		    id.innerHTML = "I’m a rising senior at Roseland University Prep, located in Santa Rosa. I am currently 17 years old. I began coding because of Girls Who Code. I like watching movies, reading, drawing, eating, being with friends and family, and listening to music. My favorite meal is chilaquiles.";
+  				}
+        </script>
         <div class="column">
           <div class="card">
-            <img src="/w3images/team2.jpg" alt="Kassandra Beas" style="width:100%">
+            <img src="/w3images/team2.jpg" alt="Kasy Beas" style="width:100%">
             <div class="container">
-              <h2>Kassandra Beas</h2>
+              <h2>Kasy Beas</h2>
               <p class="title">GOOGLE MAPS API</p>
-              <p>I have a very mean sense of humor but in reality I do actually care about my team.....JK</p>
-              <p>example@example.com</p>
-              <p><button class="button">Contact Me</button></p>
+              <p onclick="moreKasy(this)">I’m a rising senior at Roseland University Prep, located in Santa Rosa. I am currently 17 years old. (click for more)</p>
+              <p>KasyD4@gmail.com</p>
+              <p><button class="button" onclick="window.open('https://en.wikipedia.org/wiki/Cat');">Contact Me</button></p>
             </div>
           </div>
         </div>
 
         <!-- aleida -->
+        <script>
+          function moreAleida(id){
+            id.innerHTML = "I am a rising junior at Harbor High School in Santa Cruz and currently 16 years old. I just leanred to code during the summer program girls who code. This is one of my favorite summers balh blah blah blah blah"
+          }
+        </script>
         <div class="column">
           <div class="card">
             <img src="/w3images/team3.jpg" alt="Aleida Diaz" style="width:100%">
             <div class="container">
               <h2>ALeida Diaz</h2>
               <p class="title">WEB DESIGNER</p>
-              <p>I make to many groaning noises when II'm frustrateda and I also don't know how I have friends</p>
-              <p>example@example.com</p>
-              <p><button class="button">Contact Me</button></p>
+              <p>I am a rising junior  at Harbor High School in Santa Cruz and currently 16 years old (click for more)</p>
+              <p>037ale@gmail.com</p>
+              <p><button class="button" onclick="window.open('https://en.wikipedia.org/wiki/Bird');">Contact Me</button></p>
             </div>
           </div>
         </div>
-      </div>
 
+        </div>
+
+      <!-- Xiaotong, Mahum, Lana -->
       <div class="row">
 
         <!-- xiaotong -->
+        <script>
+          function moreXiaotong (id){
+            id.innerHTML = " Hi! I’m a rising senior at KIPP San Jose Collegiate, located in San Jose. I am currently 16 years old. I started coding this year at Girls Who Code. "
+          }
+        </script>
         <div class="column">
           <div class="card">
-            <img src="/w3images/team1.jpg" alt="Xiaotong Huang" style="width:100%">
+            <img src="https://goo.gl/F1yHEq" alt="Xiaotong Huang" style="width:100%">
             <div class="container">
               <h2>Xiaotong Huang</h2>
               <p class="title">GOOGLE MAPS API</p>
-              <p>I say I'm really good at basketbal but I'm really not and also I can't see when I'm about to make a box</p>
-              <p>example@example.com</p>
-              <p><button class="button">Contact Me</button></p>
+              <p onclick="moreXiaotong(this)"> Hi! I’m a rising senior at KIPP San Jose Collegiate, located in San Jose. I am currently 16 years old. (click for more)</p>
+              <p>nicolehuang2006@gmail.com</p>
+              <p><button class="button" onclick="window.open('https://en.wikipedia.org/wiki/Fish');">Contact Me</button></p>
             </div>
           </div>
         </div>
 
-        <!-- Kasy -->
+        <!-- Lana-->
+        <script>
+          function moreLana(id) {
+        		id.innerHTML = "I’m a rising junior at Piedmont Hills High School, located in San Jose. I’m 15 years old. I started coding this year at Girls Who Code.  I like singing, volunteering, and hanging out with animals. My favorite food is cheesy pasta.";
+    				}
+        </script>
         <div class="column">
           <div class="card">
             <img src="/w3images/team3.jpg" alt="Lana Ngo" style="width:100%">
             <div class="container">
               <h2>Lana Ngo</h2>
               <p class="title">SPOTIFY API & DATABASE</p>
-              <p>I'm really shy but I make mean comments all the time and funny dances.</p>
-              <p>example@example.com</p>
-              <p><button class="button">Contact Me</button></p>
+              <p onclick="moreLana(this)">I’m a rising junior at Piedmont Hills High School, located in San Jose. I’m 15 years old. (click for more)</p>
+              <p>lanavyngo@gmail.com</p>
+              <p><button class="button" onclick="window.open('https://en.wikipedia.org/wiki/Alpaca');">Contact Me</button></p>
             </div>
           </div>
         </div>
 
-        <!-- Lana-->
+        <!-- Mahum-->
+        <script>
+          function moreMahum(id){
+            id.innerHTML= "Hi! I’m a rising senior at Adrian Wilcox High School from Santa Clara. I am currently 16 years old. I had no prior experience for coding before Girls Who Code. My hobbies include reading, writing, watching Netflix, spending time with my friends and family, and listening to music. My favorite cuisine is Thai food!"
+          }
+        </script>
         <div class="column">
           <div class="card">
             <img src="/w3images/team3.jpg" alt="Mahum Malik" style="width:100%">
             <div class="container">
               <h2>Mahum Malik</h2>
               <p class="title">SPOTIFY API & DATABASE</p>
-              <p>I cunfuse Chandra and Hana and forget my stuff everywhere (headphones and glasses)</p>
-              <p>example@example.com</p>
-              <p><button class="button">Contact Me</button></p>
+              <p onclick="moreMahum(this)">Hi! I’m a rising senior at Adrian Wilcox High School from Santa Clara. I am currently 16 years old. (click for more)</p>
+              <p>mahum.malik@gmail.com</p>
+              <p><button class="button" onclick>Contact Me</button></p>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
+      </div>
+
+    </div>
 
     <!-- Third Image with credits -->
     <div class = "img-3">
-      <!-- <div class = "caption">
-        <span class = "border" style="background-color:transparent;font-size:25px;color: #f7f7f7;"> CREDITS </span>
-      </div> -->
+      <div class = "caption">
+        <span class = "border" style="background-color:transparent;font-size:40px;color: #f7f7f7;"> CREDITS </span>
+      </div>
     </div>
 
-
     <!-- Content of Credits -->
-    <div style="color: #777;background-color:white;text-align:center;padding:5% 10%;text-align: justify;" id="credits">
+    <div src = "music_notes_bg.jpg"style="color: #777;text-align:center;padding:5% 10%;text-align: justify;" id="credits">
       <h3>CREDITS</h3>
       <p>Most of the code was inpired or based of examples from W3Schools.</p>
       <p>The links below inspired the creation of this webpage</p>
@@ -552,6 +587,7 @@
         <li>https://goo.gl/QL8MDt for the Contact profiles</li>
         <li>https://goo.gl/RDY7Yo for the icons on the menu tabs</li>
         <li>https://goo.gl/2jKwKn for the parallax scrolling effect</li>
+        <li>http://maxpixel.freegreatpicture.com images in parallax</li>
         <li></li>
       </ul>
     </div>
@@ -559,3 +595,4 @@
   </body>
 
 </html>
+
