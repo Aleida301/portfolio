@@ -58,7 +58,7 @@
         }
 
       .img-1 {
-        background-image: url("bkg.JPG");
+        background-image: url("https://goo.gl/h3jG3P");
         height: 100%;
       }
 
@@ -68,7 +68,7 @@
       }
 
       .img-3{
-        background-image: url("bkg3.JPG");
+        background-image: url("https://goo.gl/DLbsth");
         height: 500px;
       }
 
@@ -443,7 +443,7 @@
             'spotify:track:4uQ7wYsuL0DryknoDc11Hk'],
             Glendale: ['spotify:track:0SaWtxS464rhgWLHs00N7t',
             'spotify:track:2DlHlPMa4M17kufBvI2lEN'],
-            Hawthorne: ['spotify:track:4LwU4Vp6od3Sb08CsP99GC',
+            Hawthorn: ['spotify:track:4LwU4Vp6od3Sb08CsP99GC',
             'spotify:track:2pw36KAhXcFPmYaPHmuMNd'],
             Inglewood: ['spotify:track:3DmW6y7wTEYHJZlLo1r6XJ',
             'spotify:track:69f1steoIMhN1skPkBR6rB',
@@ -673,7 +673,7 @@
             var HaciendoHieghts =  new google.maps.LatLng(33.9931, -117.9687)
             var HuntingtonBeach =  new google.maps.LatLng(33.6595, -117.9988)
             var Irvine =  new google.maps.LatLng(33.6846, -117.8265)
-            var LadeiraHieghts =  new google.maps.LatLng(33.9872, -118.3725)
+            var LaderaHeights =  new google.maps.LatLng(33.9872, -118.3725)
             var Malibu =  new google.maps.LatLng(34.0259, -118.7798)
             var Pasadena =  new google.maps.LatLng(34.1478, -118.1445)
             var Poway =  new google.maps.LatLng(32.9628, -117.0359)
@@ -790,8 +790,8 @@
             if (google.maps.geometry.poly.isLocationOnEdge(Irvine, polyline, 0.03 )){
               LocationsPassed.push("Irvine");
             }
-            if (google.maps.geometry.poly.isLocationOnEdge(LadeiraHieghts, polyline, 0.03 )){
-              LocationsPassed.push("Ladeira Hieghts");
+            if (google.maps.geometry.poly.isLocationOnEdge(LaderaHeights, polyline, 0.03 )){
+              LocationsPassed.push("Ladera Heights");
             }
             if (google.maps.geometry.poly.isLocationOnEdge(Malibu, polyline, 0.03 )){
               LocationsPassed.push("Malibu");
@@ -861,7 +861,7 @@
             }
             YourNewPlaylist = []
 
-
+            console.log("LOCATIONS PASSED: " + LocationsPassed);
             for (i = 0; i < LocationsPassed.length; i++){
               var city = LocationsPassed[i].replace(/\s/g, '');
               var song= CitiesAndTracks[String(city)];
@@ -1045,6 +1045,38 @@
               <a href="https://www.linkedin.com/in/mahum-malik-a25173142" target="_blank"><i class="fa fa-linkedin-square" style="font-size:30px;color:blue; padding:3px;"></i></a>
               <a href="https://www.instagram.com/mahum__mx/" target="_blank"><i class="fa fa-instagram" style="font-size:30px;color:purple;"></i></a>
             </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- Third Image with credits -->
+    <div class = "img-3">
+      <div class = "caption">
+        <span class = "border" style="background-color:transparent;font-size:40px;color: #f7f7f7;"> ACKNOWLEDGMENTS</span>
+      </div>
+    </div>
+
+    <!-- Content of Credits -->
+    <div style="color: #777;text-align:center;padding:5% 10%;text-align: justify; background-image:" id="credits" class="quick">
+      <h3>ACKNOWLEDGMENTS</h3>
+      <p>Most of the code was inpired or based of examples from W3Schools.</p>
+      <p>The links below inspired the creation of this webpage</p>
+      <ul>
+        <li>https://goo.gl/QL8MDt - for the Contact profiles</li>
+        <li>https://goo.gl/RDY7Yo  - for the icons on the menu tabs</li>
+        <li>https://goo.gl/2jKwKn  - for the parallax scrolling effect</li>
+        <li>http://maxpixel.freegreatpicture.com  - images in parallax</li>
+        <li> Elise Xu - for the team images</li>
+      </ul>
+    </div>
+
+  </body>
+
+</html>
+
           </div>
         </div>
 
