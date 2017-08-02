@@ -6,17 +6,15 @@
     <!-- map code -->
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-       #map {
-         height: 75%;
-         width: 75%;
+      #map {
+         height: 50%;
+         width: 50%;
          margin: auto;
-         margin-bottom: 100px;
-          }
-
+        }
+      /* Optional: Makes the sample page fill the window. */
       .controls {
         margin-top: 10px;
         border: 1px solid transparent;
@@ -26,7 +24,7 @@
         height: 32px;
         outline: none;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-        }
+      }
 
       #origin-input,
       #destination-input {
@@ -38,35 +36,14 @@
         padding: 0 11px 0 13px;
         text-overflow: ellipsis;
         width: 200px;
-        }
+      }
 
       #origin-input:focus,
       #destination-input:focus {
         border-color: #4d90fe;
-       }
-
-      #mode-selector {
-        color: #fff;
-        background-color: #4d90fe;
-        margin-left: 12px;
-        padding: 5px 11px 0px 11px;
       }
-
-      #mode-selector label {
-        font-family: Roboto;
-        font-size: 13px;
-        font-weight: 300;
-      }
-    </style>
-
-    <!-- Font -->
-    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
-    <style>
-      body, html {
-          height: 100%;
-          margin: 0;
-          font-family: "Lato", sans-serif;
-          color: #777;
+      #list{
+        font-size:24px;
       }
     </style>
 
@@ -110,7 +87,9 @@
         text-align: center;
         color: #000;
         line-height: 300%;
-
+        font-family: "Lato", sans-serif;
+        color: #777;
+        text-transform: uppercase;
       }
 
       .caption span.border {
@@ -130,8 +109,8 @@
       h3 {
         letter-spacing: 5px;
         text-transform: uppercase;
-        font: "lato", sans-serif;
         color: #444;
+        font-size: 25px;
       }
     </style>
 
@@ -147,6 +126,7 @@
         width: 100%;
         z-index: 4;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        font-family: "Lato", sans-serif;
 
       }
 
@@ -261,15 +241,79 @@
       }
     </style>
 
+    <!-- fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
+
+    <style>
+      body, html {
+          height: 100%;
+          margin: 0;
+      }
+    </style>
+
+    <style>
+      .lato{
+        font-family: "Lato", sans-serif;
+      }
+      .quick{
+        font-family: 'Quicksand';
+      }
+      .size20{
+        font-size: 20px;
+      }
+    </style>
+
+    <!-- layout -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .col-container{
+        display: table;
+        width:100%
+      }
+      .col {
+        display: table-cell;
+        padding: 16px;
+      }
+
+      @media only screen and (max-width: 600px){
+        .col{
+          display: block;
+          width: 100%;
+        }
+      }
+      @media only screen and (max-width:600px){
+        .col{
+          display:block;
+          width: 100%;
+        }
+      }
+    </style>
+
+    <!-- button -->
+    <script>
+      function copy(element){
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(lement).text()).select();
+        docuemnt.execCommand("copy");
+        $temp.remove();
+      }
+
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   </head>
 
   <body>
     <!-- Navigation bar -->
-    <div class="topnav" id="myTopnav">
+    <div class="topnav lato" style="font-size:100%"id="myTopnav">
       <a href="#home"><i class="fa fa-home"></i> HOME</a>
-      <a href="#about"><i class = "fa fa-music"></i> ABOUT(product)</a>
-      <a href="#us"><i class = "fa fa-user"></i> ABOUT US</a>
-      <a href="#credits"><i class = "fa fa-file-text"></i> CREDITS</a>
+      <a href="#about"><i class = "fa fa-music"></i> ABOUT TTM</a>
+      <a href="#us"><i class = "fa fa-group"></i> ABOUT US</a>
+      <a href="#credits"><i class = "fa fa-file-text"></i> ACKNOWLEDGMENTS</a>
       <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
     </div>
 
@@ -294,159 +338,590 @@
 
     <!-- Content of About Product -->
     <div style="color: #777; background-color:white; text-align:center; padding:5% 10%;text-align: justify;" id = "about">
-      <h3 style="text-align:center">ABOUT(product)</h3>
-      <p>Whit this product we showcase our skills in HTML, CSS and Javacript. This Product was created with the intention of bringing a ownderful experience
-      to those long roadtrips or even short ones. We provide you with artists from the
-      cities you pass by as you go to your destination. This way you can discover the
-      wonders that surround you. As you pass each city you will be able to travel
-      throught the music around you.</p>
+      <h3 style="text-align:center;" class="quick">ABOUT TRAVELLING THROUGH MUSIC</h3>
 
-      <p style = "text-align:center;"><em>How to use</em></p>
+      <p class="quick size20">This Product was created with the intention of bringing a
+      wonderful experience to those long roadtrips or even short ones. We provide
+      you with artists from the cities you pass by as you go to your destination.
+      This way you can discover the wonders that surround you. As you pass each
+      city you will be able to travel through music</p>
 
-      <ol>
-        <li>Choose a route from the google maps provided</li>
-        <li>Click on make playlist</li>
+      <h2 style="text-align:center; color: #555; letter-spacing: 5px;" class="quick">HOW TO USE</h2>
+
+      <ol class="quick size20">
+        <li>Choose a origin and destination from the map below. (make sure to choose options from the dropdown menu)</li>
+        <li>Copy all the track codes and click on the spotify link provided.</li>
+        <li>Log into your spotify account if you are not already logged in </li>
+        <li>Once you are in Spotify make an empty playlist and just paste the codes.</li>
+        <li>The tracks should appear and now you are ready to go.</li>
       </ol>
-      <p>Now everytime you pass a new city songs from local artists will be added to your playlist. You will be able to travel to music. Try it down here.</p>
 
     </div>
 
       <!-- map code -->
-      <input id="origin-input" class="controls" type="text"
-          placeholder="Enter an origin location">
 
-      <input id="destination-input" class="controls" type="text"
-          placeholder="Enter a destination location">
+        <input id="origin-input" class="controls" type="text"
+            placeholder="Enter an origin location">
 
-      <div id="mode-selector" class="controls">
-        <input type="radio" name="type" id="changemode-walking" checked="checked">
-        <label for="changemode-walking">Walking</label>
+        <input id="destination-input" class="controls" type="text"
+            placeholder="Enter a destination location">
 
-        <input type="radio" name="type" id="changemode-transit">
-        <label for="changemode-transit">Transit</label>
 
-        <input type="radio" name="type" id="changemode-driving">
-        <label for="changemode-driving">Driving</label>
-      </div>
+        <div id="map"></div>
+        <script>
+          // This example requires the Places library. Include the libraries=places
+          // parameter when you first load the API. For example:
+          // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
-      <div id="map"></div>
+          var CitiesAndTracks = {
+            Bakersfield: ['spotify:track:6adhpSbrhat9S0WEVjf4HP',
+            'spotify:track:53lkGbhMqBVANHmVgRGC6i',
+            'spotify:track:3JWEMzwpcWCvu4Qw1BIbYi',
+            'spotify:track:6W21LNLz9Sw7sUSNWMSHRu',
+            'spotify:track:1A6P8IxzNyBRsQualaNXNY'],
+            Danville: ['spotify:track:59hLkSaMJlkmjQICAjGgTe'],
+            ElCentro: ['spotify:track:2goLsvvODILDzeeiT4dAoR'],
+            Eureka: ['spotify:track:6Uy6K3KdmUdAfelUp0SeXn'],
+            Fairfield: ['spotify:track:2ng5lhEsASy6jgbOLg877a'],
+            Fresno: ['spotify:track:2ppkGKabWsSgNV4fvOldQb',
+             'spotify:track:1uYqUmKoxS3bJdXK6C1Un3',
+             'spotify:track:2mGdIBIKa8lEkm1xtmIJmU'],
+            LosAngeles: ['spotify:track:4P0osvTXoSYZZC2n8IFH3c',
+            'spotify:track:5vgXJ72X7U9Hw3gjUoUgeR',
+            'spotify:track:60oyvXjv0nwZnRrwZvZqUm',
+            'spotify:track:3YuaBvuZqcwN3CEAyyoaei',
+            'spotify:track:3VC1IEz9M1txlMSx3h3tPM',
+            'spotify:track:5PntSbMHC1ud6Vvl8x56qd',
+            'spotify:track:7x9vJE3Xa7mIH106rzO9Tk',
+            'spotify:track:6Z8R6UsFuGXGtiIxiD8ISb',
+            'spotify:track:3kxfsdsCpFgN412fpnW85Y',
+            'spotify:track:6olUplztLFFfU7fMYmFXOP',
+            'spotify:track:2ZBr6a8ecFqLJA0lcvFPCc',
+            'spotify:track:4GtN7yHlsvQanJfp2Qzw1A',
+            'spotify:track:2XMTqoHHSH0lvuXrvIEdco',
+            'spotify:track:7vRriwrloYVaoAe3a9wJHe',
+            'spotify:track:0aL04tpzW92i8kwRbSXO5v',
+            'spotify:track:1lgWOtohsjX526FK6Ch5B8',
+            'spotify:track:57nNNkgk768QVXq3uHxu5e',
+            'spotify:track:0GO8y8jQk1PkHzS31d699N',
+            'spotify:track:3dNjUFt6EFU4Gq6Q5vfJqf',
+            'spotify:track:5wBLDkxVvclanSitx5jq8e',
+            'spotify:track:6wdzLY3TTwx7zVnMmj8Z8R',
+            'spotify:track:6ZpR2XFuQJSHAQwg9495KZ',
+            'spotify:track:6Upu6yjkdi0DVI8E3IBZEU',
+            'spotify:track:7uc39NPTNiu86GQxTUMzGT',
+            'spotify:track:7GVXLjLhmyBCzp3jfZAC9y',
+            'spotify:track:7Iv3yOu5ZqtXi5hxSMNi42',
+            'spotify:track:0AKejOKlGdiB53QpwAeenO',
+            'spotify:track:7sapKrjDij2fpDVj0GxP66',
+            'spotify:track:1LmN9SSHISbtp9LoaR5ZVJ',
+            'spotify:track:4XNrMwGx1SqP01sqkGTDmo',
+            'spotify:track:2bL2gyO6kBdLkNSkxXNh6x',
+            'spotify:track:10igKaIKsSB6ZnWxPxPvKO',
+            'spotify:track:6FE2iI43OZnszFLuLtvvmg',
+            'spotify:track:5tajmvqHF6YW1iiUFzKpCB',
+            'spotify:track:0PDCewmZCp0P5s00bptcdd',
+            'spotify:track:48UPSzbZjgc449aqz8bxox',
+            'spotify:track:0n4bITAu0Y0nigrz3MFJMb',
+            'spotify:track:66hayvUbTotekKU3H4ta1f',
+            'spotify:track:1X1DWw2pcNZ8zSub3uhlNz',
+            'spotify:track:4MhTFsyqIJnjsOweVcU8ug'],
+            AgouraHills: ['spotify:track:2nLtzopw4rPReszdYBJU6h'],
+            BeverlyHills: ['spotify:track:2ziVTVizQdVNC2QhQhNGvg',
+            'spotify:track:7fwDFybKTd7IzJ2gFanmF8',
+            'spotify:track:3EyNj8ps0rYIAF4xIpFCjc'],
+            Compton: ['spotify:track:2qOm7ukLyHUXWyR4ZWLwxA',
+            'spotify:track:7KXjTSCq5nL1LoYtL7XAwS',
+            'spotify:track:6HZILIRieu8S0iqY8kIKhj',
+            'spotify:track:6PGoSes0D9eUDeeAafB2As',
+            'spotify:track:3JEzGRDUsozrehZTq3dKE8',
+            'spotify:track:0k6DnZMLoEUH8NGD5zh2SE',
+            'spotify:track:7DfFc7a6Rwfi3YQMRbDMau',
+            'spotify:track:3CgZCQyuyxHRMWB9BTwmni',
+            'spotify:track:2GJEMlKxt3GL2rJMOTET6Z',
+            'spotify:track:2NBQmPrOEEjA8VbeWOQGxO',
+            'spotify:track:4uQ7wYsuL0DryknoDc11Hk'],
+            Glendale: ['spotify:track:0SaWtxS464rhgWLHs00N7t',
+            'spotify:track:2DlHlPMa4M17kufBvI2lEN'],
+            Hawthorne: ['spotify:track:4LwU4Vp6od3Sb08CsP99GC',
+            'spotify:track:2pw36KAhXcFPmYaPHmuMNd'],
+            Inglewood: ['spotify:track:3DmW6y7wTEYHJZlLo1r6XJ',
+            'spotify:track:69f1steoIMhN1skPkBR6rB',
+            'spotify:track:6fujklziTHa8uoM5OQSfIo'],
+            LongBeach: ['spotify:track:7fwDFybKTd7IzJ2gFanmF8',
+            'spotify:track:3EyNj8ps0rYIAF4xIpFCjc',
+            'spotify:track:4SZ3B3y1TbwTK4OIXMOVEy'],
+            SantaMonica: ['spotify:track:0SGkqnVQo9KPytSri1H6cF',
+            'spotify:track:7FYH5AW3bVfZHJIQpq3UOA'],
+            Torrance:['spotify:track:44e84JcEUfOs9cNGu8nwU5',
+            'spotify:track:3kqsetsOxWWCkE3UrbZCGV',
+            'spotify:track:75SBpBB0SUZR0A0HzW7xwi'],
+            OrangeCounty: ['spotify:track:4PvD06Pmbm2rHG2JjSlElF',
+            'spotify:track:4NaPX1b3NsQqJrrAwkkvVc'],
+            Anaheim: ['spotify:track:3cqBDhm3ZymbMnv3CJVieh',
+            'spotify:track:4p6llmWOfcNKYItgIoteBl',
+            'spotify:track:0YOOXnCJihgyluizqhAcrz',
+            'spotify:track:55SBnUF28p7VolE0P2PiYb'],
+            CostaMesa: ['spotify:track:4fKAPa1mPoF0fE3C5tqQ2t'],
+            Fullerton: ['spotify:track:2VN4JzEvyf7Sn6fDUiYbXi',
+            'spotify:track:6RcQOut9fWL6FSqeIr5M1r'],
+            NewportBeach: ['spotify:track:5XTFcB4VvTVhxUweDAm1g4',
+            'spotify:track:6vscP7Fweq7fwosyliwjRq'],
+            Oxnard: ['spotify:track:33pDmPx2pkJ7JCAQpRDQ9B'],
+            HaciendaHeights: ['spotify:track:1D066zixBwqFYqBhKgdPzp'],
+            HuntingtonBeach: ['spotify:track:5anCkDvJ17aznvK5TED5uo'],
+            Irvine: ['spotify:track:5Az8KU81g2aLBbJN67F2CI'],
+            LaderaHeights: ['spotify:track:2wBCrtJS3E3TimRZ5MElTI',
+            'spotify:track:5Ck3e6z1bcSCes5gdo0Ddt',
+            'spotify:track:2yrT2fMFQCLkTberaBQDhJ',
+            'spotify:track:4Y8MG7qcAMk7JB7Eebpcvu',
+            'spotify:track:7mnJgJhtuBEMRNoERn1OOa',
+            'spotify:track:4ShIMQAPiYBkCdHCvLbelR',
+            'spotify:track:4bEcoz1OcfMgUbp2ft8ieQ'],
+            Malibu: ['spotify:track:0rFOs9paloAvEtzwDX1Kmc',
+            'spotify:track:5d5bSjkqZlF0m6IW7ZHcfr'],
+            Pasadena: ['spotify:track:7N3PAbqfTjSEU1edb2tY8j',
+            'spotify:track:5myYDbAurm1CW038qd4gL2',
+            'spotify:track:5lcMNBseytGC9YjUqwgl8Y'],
+            Poway: ['spotify:track:7yCPwWs66K8Ba5lFuU2bcx'],
+            SanPedro: ['spotify:track:0JXXNGljqupsJaZsgSbMZV',
+            'spotify:track:25cUhiAod71TIQSNicOaW3',
+            'spotify:track:5OFKWrKbS8iTIGxgjyHDzW'],
+            SanFernandoValley: ['spotify:track:5OMwQFBcte0aWFJFqrr5oj',
+            'spotify:track:0Ji2g9AlYLVHAMG5PJoHPU',
+            'spotify:track:5FQazQxWUHsJ8QDaXLdFzR',
+            'spotify:track:2EEeOnHehOozLq4aS0n6SL',
+            'spotify:track:1ijh3a4XfBJLXdKMcHJJ4A',
+            'spotify:track:0SpSr1lOIyPrZ7Wdeuvhlx',
+            'spotify:track:3yqsrYme138DD5pwu7cn0R'],
+            WestlakeVillage: ['spotify:track:3TRFq09DUgYj1mug6RRqJW'],
+            Modesto: ['spotify:track:049RBeRVSsI36g26qmlLFc',
+            'spotify:track:3grtJcKBl8xz0Sb1w3ElyT'],
+            Murrieta: ['spotify:track:4I7B083Xi0GdfjRoW8HZU6'],
+            NewburyPark: ['spotify:track:5E30LdtzQTGqRvNd7l6kG5',
+            'spotify:track:07VBqWH6NG8L2ad3l84UKk',
+            'spotify:track:2u0CelO5c81XS7z3dGpHbS',
+            'spotify:track:7ehH993HyaSs8LjIsOpbGA',
+            'spotify:track:2QjOHCTQ1Jl3zawyYOpxh6'],
+            PalmSprings: ['spotify:track:2KZXnR0qj5CX8TPOZSshjc',
+            'spotify:track:0p7IjEa6dXafyAZp69COFt'],
+            Riverside: ['spotify:track:6wEZKaUnOFYZpi76ZGlfeF',
+            'spotify:track:26a1ih91NiFLHgJo4Tk2Dw'],
+            Sacramento: ['spotify:track:2668bwtJY480AmGb2iXlo3',
+            'spotify:track:1AHnw5nMvOOaLuTzAcdESJ',
+            'spotify:track:2ZGmFVSTg1VVwJ70Shx0uR'],
+            SantaCruz: ['spotify:track:1ti43ZT6bc4o1eGOSnBHkO',
+            'spotify:track:1QTOqzmJIWLpA7ETtcGTPA',
+            'spotify:track:1iIR0Zy8rIyTY9ps0PuMLi',
+            'spotify:track:5JbxfzkF61bFP13E8tRoyR'],
+            SanDiego: ['spotify:track:2WZyfujzMweFLnozyUJBkW',
+            'spotify:track:1EzrEOXmMH3G43AXT1y7pA',
+            'spotify:track:6DBSkml3KJ7wHYIeKJ355j',
+            'spotify:track:7b4vhS98rVinisbHa1HP8i',
+            'spotify:track:7zhxXSGNMVuWMOsFLq1r9h'],
+            SantaBarbara: ['spotify:track:0kUMtZVaYb7EETkBdrEXXA',
+            'spotify:track:2U0pVx4m1Kdm1Gsjjm6iq8'],
+            SantaRosa: ['spotify:track:3w9RqH88TFWrtYi1hRyuf5'],
+            Berkeley: ['spotify:track:1N2G6R3Rtbr7gLCL4j4d1p',
+            'spotify:track:6nTiIhLmQ3FWhvrGafw2zj',
+            'spotify:track:3IQSYqnKsCTMLWn2xE3HFT'],
+            Oakland:['spotify:track:4TTV7EcfroSLWzXRY6gLv6',
+            'spotify:track:6iiDD7pDnTWu4G58VaUvYQ',
+            'spotify:track:1Bqxj0aH5KewYHKUg1IdrF',
+            'spotify:track:7d1CFwrBmH34gmS0Hkbfbt'],
+            PaloAlto: ['spotify:track:5ZLzl6T8JwqMTMdoE0nCbU',
+            'spotify:track:1P6YsnKLEAgmIqclNxDn03',
+            'spotify:track:11BAVEGi1ivJ6JWLqKUNrZ'],
+            SanFrancisco: ['spotify:track:52qH79XktzCUPkN0dlRbUs',
+            'spotify:track:54Yappwod1fELR5zb2gDBn',
+            'spotify:track:6uT9XRrPvimLt62FNjMNBv',
+            'spotify:track:4OK9L5YHE3pVQWJjNqK56k',
+            'spotify:track:6FS96JARf1fTNHOc1e1fL7',
+            'spotify:track:0Ev562zA4pmUsBqjxsxxdx',
+            'spotify:track:77NNZQSqzLNqh2A9JhLRkg',
+            'spotify:track:1wjzFQodRWrPcQ0AnYnvQ9',
+            'spotify:track:42et6fnHCw1HIPSrdPprMl',
+            'spotify:track:2hKdd3qO7cWr2Jo0Bcs0MA'],
+            SanJose: ['spotify:track:3cfOd4CMv2snFaKAnMdnvK'],
+            Vallejo: ['spotify:track:6Nq5lE0CeOAAAqN4qhkbZU',
+            'spotify:track:6o3s08kk2fQI37vxGZDrJ1',
+            'spotify:track:4sqGlfDc7QCPvAvUBk4OKn'],
+            ThousandOaks: ['spotify:track:0jllH0usRFD4LJkJnGK9Lf']}
 
-      <script>
-        // This example requires the Places library. Include the libraries=places
-        // parameter when you first load the API. For example:
-        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+          var LocationsPassed = []
+          var map;
+            function initMap() {
+              map = new google.maps.Map(document.getElementById('map'), {
+                mapTypeControl: false,
+                center: {lat: 36.778259, lng: -119.417931},
+                zoom: 7
+              });
+              new AutocompleteDirectionsHandler(map);
+            };
 
-        function initMap() {
-          var map = new google.maps.Map(document.getElementById('map'), {
-            mapTypeControl: false,
-            center: {lat: 36.778259, lng: -119.417931},
-            zoom: 7
-          });
+           /**
+            * @constructor
+           */
 
-          new AutocompleteDirectionsHandler(map);
-        }
+          function AutocompleteDirectionsHandler(map) {
+            this.map = map;
+            this.originPlaceId = null;
+            this.destinationPlaceId = null;
+            this.travelMode = 'DRIVING';
+            var originInput = document.getElementById('origin-input');
+            var destinationInput = document.getElementById('destination-input');
+            this.directionsService = new google.maps.DirectionsService;
+            this.directionsDisplay = new google.maps.DirectionsRenderer;
+            this.directionsDisplay.setMap(map);
 
-         /**
-          * @constructor
-         */
+            var originAutocomplete = new google.maps.places.Autocomplete(
+                originInput, {placeIdOnly: true});
+            var destinationAutocomplete = new google.maps.places.Autocomplete(
+                destinationInput, {placeIdOnly: true});
 
-        function AutocompleteDirectionsHandler(map) {
-          this.map = map;
-          this.originPlaceId = null;
-          this.destinationPlaceId = null;
-          this.travelMode = 'WALKING';
-          var originInput = document.getElementById('origin-input');
-          var destinationInput = document.getElementById('destination-input');
-          var modeSelector = document.getElementById('mode-selector');
-          this.directionsService = new google.maps.DirectionsService;
-          this.directionsDisplay = new google.maps.DirectionsRenderer;
-          this.directionsDisplay.setMap(map);
+            this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
+            this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
 
-          var originAutocomplete = new google.maps.places.Autocomplete(
-              originInput, {placeIdOnly: true});
-          var destinationAutocomplete = new google.maps.places.Autocomplete(
-              destinationInput, {placeIdOnly: true});
+            this.map.controls[google.maps.ControlPosition.LEFT_TOP].push(originInput);
+            this.map.controls[google.maps.ControlPosition.LEFT_TOP].push(destinationInput);
+          }
 
-          this.setupClickListener('changemode-walking', 'WALKING');
-          this.setupClickListener('changemode-transit', 'TRANSIT');
-          this.setupClickListener('changemode-driving', 'DRIVING');
+          // Sets a listener on a radio button to change the filter type on Places
+          // Autocomplete.
+          AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) {
+            var radioButton = document.getElementById(id);
+            var me = this;
+            radioButton.addEventListener('click', function() {
+              me.travelMode = mode;
+              me.route();
+            });
+          };
 
-          this.setupPlaceChangedListener(originAutocomplete, 'ORIG');
-          this.setupPlaceChangedListener(destinationAutocomplete, 'DEST');
+          AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
+            var me = this;
+            autocomplete.bindTo('bounds', this.map);
+            autocomplete.addListener('place_changed', function() {
+              var place = autocomplete.getPlace();
+              if (!place.place_id) {
+                window.alert("Please select an option from the dropdown list.");
+                return;
+              }
+              if (mode === 'ORIG') {
+                me.originPlaceId = place.place_id;
+              } else {
+                me.destinationPlaceId = place.place_id;
+              }
+              document.getElementById("list").innerHTML =" "
+              document.getElementById("songs").innerHTML =" "
+              me.route();
+            });
 
-          this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
-          this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(destinationInput);
-          this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
-        }
+          };
 
-        // Sets a listener on a radio button to change the filter type on Places
-        // Autocomplete.
-        AutocompleteDirectionsHandler.prototype.setupClickListener = function(id, mode) {
-          var radioButton = document.getElementById(id);
-          var me = this;
-          radioButton.addEventListener('click', function() {
-            me.travelMode = mode;
-            me.route();
-          });
-        };
-
-        AutocompleteDirectionsHandler.prototype.setupPlaceChangedListener = function(autocomplete, mode) {
-          var me = this;
-          autocomplete.bindTo('bounds', this.map);
-          autocomplete.addListener('place_changed', function() {
-            var place = autocomplete.getPlace();
-            if (!place.place_id) {
-              window.alert("Please select an option from the dropdown list.");
+          AutocompleteDirectionsHandler.prototype.route = function() {
+            if (!this.originPlaceId || !this.destinationPlaceId) {
               return;
             }
-            if (mode === 'ORIG') {
-              me.originPlaceId = place.place_id;
-            } else {
-              me.destinationPlaceId = place.place_id;
+            var me = this;
+
+            this.directionsService.route({
+              origin: {'placeId': this.originPlaceId},
+              destination: {'placeId': this.destinationPlaceId},
+              travelMode: this.travelMode
+            }, function(response, status) {
+              if (status === 'OK') {
+                me.directionsDisplay.setDirections(response);
+                getRoutePolys(response);
+              } else {
+                window.alert('Directions request failed due to ' + status);
+              }
+            });
+
+
+          };
+
+          function getRoutePolys(directionResult) {
+            var SanJose = new google.maps.LatLng(37.3382, -121.8863)
+            var LosAngeles = new google.maps.LatLng(34.0522, -118.2437)
+            var SantaCruz = new google.maps.LatLng(36.9741, -122.0308)
+            var SanDiego = new google.maps.LatLng(32.7157, -117.1611)
+            var SanFrancisco = new google.maps.LatLng(37.7749, -122.4194)
+            var Sacramento = new google.maps.LatLng(38.5816, -121.4944)
+            var Oakland = new google.maps.LatLng(37.8044, -122.2711)
+            var Bakersfield = new google.maps.LatLng(35.3733, -119.0187)
+            var Fresno = new google.maps.LatLng(36.7468, -119.7726)
+            var Danville = new google.maps.LatLng(37.8216, -122.0000)
+            var ElCentro =  new google.maps.LatLng(32.7920, -115.5631)
+            var Eureka =  new google.maps.LatLng(40.8021, -124.1637)
+            var Fairfield =  new google.maps.LatLng(38.2494, -122.0400)
+            var AgouraHills =  new google.maps.LatLng(34.1533, -118.7617)
+            var BeverlyHills =  new google.maps.LatLng(34.0736, -118.4004)
+            var Compton =  new google.maps.LatLng(33.8958, -118.2201)
+            var Glendale =  new google.maps.LatLng(34.1425, -118.2551)
+            var Hawthorn =  new google.maps.LatLng(33.9164, -118.3526)
+            var Inglewood =  new google.maps.LatLng(33.9617, -118.3531)
+            var LongBeach =  new google.maps.LatLng(33.7701, -118.1937)
+            var SantaMonica =  new google.maps.LatLng(34.0195, -118.4912)
+            var Torrance =  new google.maps.LatLng(33.8358, -118.3406)
+            var OrangeCounty =  new google.maps.LatLng(33.7175, -117.8311)
+            var Anaheim =  new google.maps.LatLng(33.8366, -117.9143)
+            var CostaMesa =  new google.maps.LatLng(33.6412, -117.9188)
+            var Fullerton =  new google.maps.LatLng(33.8704, -117.9242)
+            var NewportBeach =  new google.maps.LatLng(33.6189, -117.9298)
+            var Oxnard =  new google.maps.LatLng(34.1975, -119.1771)
+            var DiamondBar =  new google.maps.LatLng(34.0286, -117.8103)
+            var HaciendoHieghts =  new google.maps.LatLng(33.9931, -117.9687)
+            var HuntingtonBeach =  new google.maps.LatLng(33.6595, -117.9988)
+            var Irvine =  new google.maps.LatLng(33.6846, -117.8265)
+            var LadeiraHieghts =  new google.maps.LatLng(33.9872, -118.3725)
+            var Malibu =  new google.maps.LatLng(34.0259, -118.7798)
+            var Pasadena =  new google.maps.LatLng(34.1478, -118.1445)
+            var Poway =  new google.maps.LatLng(32.9628, -117.0359)
+            var SanPedro =  new google.maps.LatLng(33.7361, -118.2922)
+            var SanFernandoValley =  new google.maps.LatLng(34.1826, -118.4397)
+            var WestlakeVillage =  new google.maps.LatLng(34.1466, -118.8074)
+            var Modesto =  new google.maps.LatLng(37.6391, -120.9969)
+            var Murrieta =  new google.maps.LatLng(33.5539, -117.2139)
+            var NewburyPark =  new google.maps.LatLng(34.1805, -118.9071)
+            var PalmSprings =  new google.maps.LatLng(33.8303, -116.5453)
+            var SantaBarbara =  new google.maps.LatLng(34.4208, -119.6982)
+            var SantaRosa =  new google.maps.LatLng(38.4404, -122.7141)
+            var Vallejo =  new google.maps.LatLng(38.1041, -122.2566)
+            var Berkeley =  new google.maps.LatLng(37.8716, -122.2727)
+            var RedondoBeach =  new google.maps.LatLng(33.8492, -118.3884)
+            var Riverside =  new google.maps.LatLng(33.9533, -117.3962)
+            var Stockton =  new google.maps.LatLng(37.9577, -121.2908)
+
+
+
+
+
+            var myRoute = directionResult.routes[0].overview_path;
+            var polyline = new google.maps.Polyline({
+              path: myRoute,
+            });
+            if (google.maps.geometry.poly.isLocationOnEdge(SanJose, polyline, 0.03 )){
+              LocationsPassed.push("San Jose");
             }
-            me.route();
-          });
+            if (google.maps.geometry.poly.isLocationOnEdge(LosAngeles, polyline, 0.03)){
+              LocationsPassed.push("Los Angeles");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(SanFrancisco, polyline, 0.03 )){
+              LocationsPassed.push("San Francisco");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Sacramento, polyline, 0.03 )){
+              LocationsPassed.push("Sacramento");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Oakland, polyline, 0.03 )){
+              LocationsPassed.push("Oakland");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Bakersfield, polyline, 0.03 )){
+              LocationsPassed.push("Bakersfield");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Fresno, polyline, 0.03 )){
+              LocationsPassed.push("Fresno");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Danville, polyline, 0.03 )){
+              LocationsPassed.push("Danville");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(ElCentro, polyline, 0.03 )){
+              LocationsPassed.push("El Centro");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Eureka, polyline, 0.03 )){
+              LocationsPassed.push("Eureka");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Fairfield, polyline, 0.03 )){
+              LocationsPassed.push("Fairfield");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(AgouraHills, polyline, 0.03 )){
+              LocationsPassed.push("Agoura Hills");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(BeverlyHills, polyline, 0.03 )){
+              LocationsPassed.push("Beverly Hills");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Compton, polyline, 0.03 )){
+              LocationsPassed.push("Compton");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Glendale, polyline, 0.03 )){
+              LocationsPassed.push("Glendale");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Hawthorn, polyline, 0.03 )){
+              LocationsPassed.push("Hawthorn");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Inglewood, polyline, 0.03 )){
+              LocationsPassed.push("Inglewood");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(LongBeach, polyline, 0.03 )){
+              LocationsPassed.push("Long Beach");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(SantaMonica, polyline, 0.03 )){
+              LocationsPassed.push("Santa Monica");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Torrance, polyline, 0.03 )){
+              LocationsPassed.push("Torrance");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(OrangeCounty, polyline, 0.03 )){
+              LocationsPassed.push("Orange County");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Anaheim, polyline, 0.03 )){
+              LocationsPassed.push("Anaheim");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(CostaMesa, polyline, 0.03 )){
+              LocationsPassed.push("Costa Mesa");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Fullerton, polyline, 0.03 )){
+              LocationsPassed.push("Fullerton");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(NewportBeach, polyline, 0.03 )){
+              LocationsPassed.push("Newport Beach");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Oxnard, polyline, 0.03 )){
+              LocationsPassed.push("Oxnard");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(DiamondBar, polyline, 0.03 )){
+              LocationsPassed.push("Diamond Bar");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(HaciendoHieghts, polyline, 0.03 )){
+              LocationsPassed.push("Haciendo Hieghts");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(HuntingtonBeach, polyline, 0.03 )){
+              LocationsPassed.push("Huntington Beach");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Irvine, polyline, 0.03 )){
+              LocationsPassed.push("Irvine");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(LadeiraHieghts, polyline, 0.03 )){
+              LocationsPassed.push("Ladeira Hieghts");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Malibu, polyline, 0.03 )){
+              LocationsPassed.push("Malibu");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Pasadena, polyline, 0.03 )){
+              LocationsPassed.push("Pasadena");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(PalmSprings, polyline, 0.03 )){
+              LocationsPassed.push("Palm Springs");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Poway, polyline, 0.03 )){
+              LocationsPassed.push("Poway");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(SanPedro, polyline, 0.03 )){
+              LocationsPassed.push("San Pedro");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(SanFernandoValley, polyline, 0.03 )){
+              LocationsPassed.push("San Fernando Valley");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(WestlakeVillage, polyline, 0.03 )){
+              LocationsPassed.push("Westlake Village");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Modesto, polyline, 0.03 )){
+              LocationsPassed.push("Modesto");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Murrieta, polyline, 0.03 )){
+              LocationsPassed.push("Murrieta");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(NewburyPark, polyline, 0.03 )){
+              LocationsPassed.push("Newbury Park");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(PalmSprings, polyline, 0.03 )){
+              LocationsPassed.push("Palm Springs");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(SantaCruz, polyline, 0.03 )){
+              LocationsPassed.push("Santa Cruz");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(SantaBarbara, polyline, 0.03 )){
+              LocationsPassed.push("Santa Barbara");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(SanDiego, polyline, 0.03 )){
+              LocationsPassed.push("San Diego");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(SantaRosa, polyline, 0.03 )){
+              LocationsPassed.push("Santa Rosa");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Berkeley, polyline, 0.03 )){
+              LocationsPassed.push("Berkeley");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Vallejo, polyline, 0.03 )){
+              LocationsPassed.push("Vallejo");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(RedondoBeach, polyline, 0.03 )){
+              LocationsPassed.push("Redondo Beach");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Riverside, polyline, 0.03 )){
+              LocationsPassed.push("Riverside");
+            }
+            if (google.maps.geometry.poly.isLocationOnEdge(Stockton, polyline, 0.03 )){
+              LocationsPassed.push("Stockton");
+            }
 
-        };
+            console.log(LocationsPassed)
 
-        AutocompleteDirectionsHandler.prototype.route = function() {
-          if (!this.originPlaceId || !this.destinationPlaceId) {
-            return;
+            for (i = 0; i < LocationsPassed.length; i++){
+                document.getElementById("list").innerHTML += LocationsPassed[i] + "<br/>";
+            }
+            YourNewPlaylist = []
+
+
+            for (i = 0; i < LocationsPassed.length; i++){
+              var city = LocationsPassed[i].replace(/\s/g, '');
+              var song= CitiesAndTracks[String(city)];
+              console.log("CITY: " + city);
+              console.log("LIST OF SONGS: " + song);
+              for (j = 0; j < song.length; j++){
+                var track = song[j];
+                console.log("TRACK: " + track);
+                YourNewPlaylist.push(track);
+              }
+            }
+            for (k = 0; k < YourNewPlaylist.length; k++){
+              document.getElementById("songs").innerHTML += YourNewPlaylist[k] + "<br/>";
+            }
+            LocationsPassed = []
           }
-          var me = this;
 
-          this.directionsService.route({
-            origin: {'placeId': this.originPlaceId},
-            destination: {'placeId': this.destinationPlaceId},
-            travelMode: this.travelMode
-          }, function(response, status) {
-            if (status === 'OK') {
-              me.directionsDisplay.setDirections(response);
-            } else {
-              window.alert('Directions request failed due to ' + status);
-            }
-          });
-        };
 
-      </script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyXcrbU-2yEutsrxTaLOg8Y47s96UqF-0&libraries=places&callback=initMap"
-          async defer></script>
+          function attachInstructionText(marker, text) {
+            google.maps.event.addListener(marker, 'click', function() {
+              stepDisplay.setContent(text);
+              stepDisplay.open(map, marker);
+            });
+          }
+
+        </script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAyXcrbU-2yEutsrxTaLOg8Y47s96UqF-0&libraries=places,geometry&callback=initMap">
+        </script>
+
+
+        <div class= "col-container quick" style="color: #777; background-color:white; text-align:center; padding:5% 10%;text-align: justify;">
+          <div class="col">
+            <h2>Cities Passed:</h2>
+              <p id= "list" style="text-align:center; padding:5% 10%;text-align:justify;"></p>
+          </div>
+          <div class="col">
+            <h2>New playlist</h2>
+              <!-- <button onlclick="copy('#p1')">Copy</button> -->
+              <div id="p1">
+                <p id= "songs" id="p1" style="text-align:center; padding:5% 10%;text-align:justify;"></p>
+              </div>
+          </div>
+        </div>
 
     <!-- Second Image with About us -->
     <div class= "img-2" >
       <div class = "caption">
-        <span class = "border" style="background-color:transparent;font-size:40px;color: #f7f7f7;">ABOUT US</span>
+        <span class = "border" style="background-color:transparent;font-size:40px;color: #f7f7f7;">MEET THE TEAM</span>
       </div>
     </div>
 
     <!-- Content of About Us -->
     <div style="color: #777;background-color:white;text-align:center;padding:5% 10%;text-align: justify;" id= "us">
 
-      <h3 style="text-align:center">About Us</h3>
-      <p style="text-align:center"><em>These are all of the girls who worked to bring this product to you.</em></p>
-
+      <h3 style="text-align:center" class="quick">MEET THE TEAM</h3>
+      <p style="text-align:center; font-size:17px;" class="quick"><em>These are all of the girls who worked to bring this product to you.</em></p>
+      <br>
       <!-- Unnati, Kasy, Aleida -->
-      <div class="row">
+      <div class="row quick">
 
         <!-- unnati -->
         <script>
@@ -456,13 +931,14 @@
         </script>
         <div class="column">
           <div class="card">
-            <img src="/w3images/team1.jpg" alt="Unnati Singh" style="width:100%">
+            <img src="unnati.JPG" alt="Unnati Singh" style="width:100%">
             <div class="container">
               <h2>Unnati Singh</h2>
               <p class="title">SPOTIFY API</p>
               <p onclick="moreUnnati(this)">Hi! I’m a rising junior at Saint Francis High School, located in Mountain View. I’m 15 years old. (click for more)</p>
               <p>unnatisingh@sfhs.com</p>
-              <p><button class="button" onclick="window.open('https://goo.gl/itUA7s');">Contact Me</button</p>
+              <a href="https://www.linkedin.com/in/unnati-singh-734991140/" target="_blank"><i class="fa fa-linkedin-square" style="font-size:30px;color:blue; padding:3px;"></i></a>
+              <a href="https://www.instagram.com/unnati.singh/" target="_blank"<i class="fa fa-instagram" style="font-size:30px;color:purple;"></i></a>
             </div>
           </div>
         </div>
@@ -475,13 +951,14 @@
         </script>
         <div class="column">
           <div class="card">
-            <img src="/w3images/team2.jpg" alt="Kasy Beas" style="width:100%">
+            <img src="kasy.JPG" alt="Kasy Beas" style="width:100%">
             <div class="container">
               <h2>Kasy Beas</h2>
               <p class="title">GOOGLE MAPS API</p>
               <p onclick="moreKasy(this)">I’m a rising senior at Roseland University Prep, located in Santa Rosa. I am currently 17 years old. (click for more)</p>
               <p>KasyD4@gmail.com</p>
-              <p><button class="button" onclick="window.open('https://en.wikipedia.org/wiki/Cat');">Contact Me</button></p>
+              <a href="https://www.linkedin.com/in/kassandra-beas-12ab22143/" target="_blank"><i class="fa fa-linkedin-square" style="font-size:30px;color:blue; padding:3px;"></i></a>
+              <a href="https://www.instagram.com/kasy_quesadilla/" target="_blank"><i class="fa fa-instagram" style="font-size:30px;color:purple;"></i></a>
             </div>
           </div>
         </div>
@@ -494,21 +971,22 @@
         </script>
         <div class="column">
           <div class="card">
-            <img src="/w3images/team3.jpg" alt="Aleida Diaz" style="width:100%">
+            <img src="aleida.JPG" alt="Aleida Diaz-Roque" style="width:100%">
             <div class="container">
-              <h2>ALeida Diaz</h2>
-              <p class="title">WEB DESIGNER</p>
-              <p>I am a rising junior  at Harbor High School in Santa Cruz and currently 16 years old (click for more)</p>
+              <h2>Aleida Diaz-Roque</h2>
+              <p class="title">WEB DESIGN</p>
+              <p onclick="moreAleida(this)">I am a rising junior  at Harbor High School in Santa Cruz and currently 16 years old (click for more)</p>
               <p>037ale@gmail.com</p>
-              <p><button class="button" onclick="window.open('https://en.wikipedia.org/wiki/Bird');">Contact Me</button></p>
+              <a href="https://www.linkedin.com/in/aleida-diaz-roque-670ba0147" target="_blank"><i class="fa fa-linkedin-square" style="font-size:30px;color:blue; padding:3px;"></i></a>
+              <a href="https://www.instagram.com/aleida.diazz/" target="_blank"><i class="fa fa-instagram" style="font-size:30px;color:purple;"></i></a>
             </div>
           </div>
         </div>
 
-        </div>
+      </div>
 
       <!-- Xiaotong, Mahum, Lana -->
-      <div class="row">
+      <div class="row quick">
 
         <!-- xiaotong -->
         <script>
@@ -518,13 +996,14 @@
         </script>
         <div class="column">
           <div class="card">
-            <img src="https://goo.gl/F1yHEq" alt="Xiaotong Huang" style="width:100%">
+            <img src="xioatong.JPG" alt="Xiaotong Huang" style="width:100%">
             <div class="container">
               <h2>Xiaotong Huang</h2>
               <p class="title">GOOGLE MAPS API</p>
               <p onclick="moreXiaotong(this)"> Hi! I’m a rising senior at KIPP San Jose Collegiate, located in San Jose. I am currently 16 years old. (click for more)</p>
               <p>nicolehuang2006@gmail.com</p>
-              <p><button class="button" onclick="window.open('https://en.wikipedia.org/wiki/Fish');">Contact Me</button></p>
+              <a href="https://www.linkedin.com/in/xiaotong-huang-67964912a/" target="_blank"><i class="fa fa-linkedin-square" style="font-size:30px;color:blue; padding:3px;"></i></a>
+              <a href="https://www.instagram.com/nicole_huang2000/" target="_blank"><i class="fa fa-instagram" style="font-size:30px;color:purple;"></i></a>
             </div>
           </div>
         </div>
@@ -537,13 +1016,14 @@
         </script>
         <div class="column">
           <div class="card">
-            <img src="/w3images/team3.jpg" alt="Lana Ngo" style="width:100%">
+            <img src="lana.JPG" alt="Lana Ngo" style="width:100%">
             <div class="container">
               <h2>Lana Ngo</h2>
               <p class="title">SPOTIFY API & DATABASE</p>
               <p onclick="moreLana(this)">I’m a rising junior at Piedmont Hills High School, located in San Jose. I’m 15 years old. (click for more)</p>
               <p>lanavyngo@gmail.com</p>
-              <p><button class="button" onclick="window.open('https://en.wikipedia.org/wiki/Alpaca');">Contact Me</button></p>
+              <a href="https://www.linkedin.com/in/lana-ngo-707485b0/" target="_blank"><i class="fa fa-linkedin-square" style="font-size:30px;color:blue; padding:3px;"></i></a>
+              <a href="https://www.instagram.com/lanango/" target="_blank"><i class="fa fa-instagram" style="font-size:30px;color:purple;"></i></a>
             </div>
           </div>
         </div>
@@ -556,13 +1036,14 @@
         </script>
         <div class="column">
           <div class="card">
-            <img src="/w3images/team3.jpg" alt="Mahum Malik" style="width:100%">
+            <img src="mahum.JPG" alt="Mahum Malik" style="width:100%">
             <div class="container">
               <h2>Mahum Malik</h2>
               <p class="title">SPOTIFY API & DATABASE</p>
               <p onclick="moreMahum(this)">Hi! I’m a rising senior at Adrian Wilcox High School from Santa Clara. I am currently 16 years old. (click for more)</p>
               <p>mahum.malik@gmail.com</p>
-              <p><button class="button" onclick>Contact Me</button></p>
+              <a href="https://www.linkedin.com/in/mahum-malik-a25173142" target="_blank"><i class="fa fa-linkedin-square" style="font-size:30px;color:blue; padding:3px;"></i></a>
+              <a href="https://www.instagram.com/mahum__mx/" target="_blank"><i class="fa fa-instagram" style="font-size:30px;color:purple;"></i></a>
             </div>
           </div>
         </div>
@@ -574,25 +1055,26 @@
     <!-- Third Image with credits -->
     <div class = "img-3">
       <div class = "caption">
-        <span class = "border" style="background-color:transparent;font-size:40px;color: #f7f7f7;"> CREDITS </span>
+        <span class = "border" style="background-color:transparent;font-size:40px;color: #f7f7f7;"> ACKNOWLEDGMENTS</span>
       </div>
     </div>
 
     <!-- Content of Credits -->
-    <div src = "music_notes_bg.jpg"style="color: #777;text-align:center;padding:5% 10%;text-align: justify;" id="credits">
-      <h3>CREDITS</h3>
+    <div style="color: #777;text-align:center;padding:5% 10%;text-align: justify; background-image:" id="credits" class="quick">
+      <h3>ACKNOWLEDGMENTS</h3>
       <p>Most of the code was inpired or based of examples from W3Schools.</p>
       <p>The links below inspired the creation of this webpage</p>
       <ul>
-        <li>https://goo.gl/QL8MDt for the Contact profiles</li>
-        <li>https://goo.gl/RDY7Yo for the icons on the menu tabs</li>
-        <li>https://goo.gl/2jKwKn for the parallax scrolling effect</li>
-        <li>http://maxpixel.freegreatpicture.com images in parallax</li>
-        <li></li>
+        <li>https://goo.gl/QL8MDt - for the Contact profiles</li>
+        <li>https://goo.gl/RDY7Yo  - for the icons on the menu tabs</li>
+        <li>https://goo.gl/2jKwKn  - for the parallax scrolling effect</li>
+        <li>http://maxpixel.freegreatpicture.com  - images in parallax</li>
+        <li> Elise Xu - for the team images</li>
       </ul>
     </div>
 
   </body>
 
 </html>
+
 
